@@ -21,7 +21,7 @@ export async function POST(request: NextRequest, context: RouteContext) {
 
   const { data: email, error: emailError } = await supabase
     .from("emails")
-    .select("*, leads(email, name, company)")
+    .select("*")
     .eq("id", emailId)
     .eq("user_id", user.id)
     .single();
@@ -38,8 +38,14 @@ export async function POST(request: NextRequest, context: RouteContext) {
     return NextResponse.json({ error: "Subject is required to send email" }, { status: 400 });
   }
 
-  const lead = Array.isArray(email.leads) ? email.leads[0] : email.leads;
-  if (!lead?.email) {
+  const { data: lead, error: leadError } = await supabase
+    .from("leads")
+    .select("email")
+    .eq("id", email.lead_id)
+    .eq("user_id", user.id)
+    .single();
+
+  if (leadError || !lead?.email) {
     return NextResponse.json({ error: "Lead email is missing" }, { status: 400 });
   }
 

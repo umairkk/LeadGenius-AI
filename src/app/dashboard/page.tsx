@@ -5,6 +5,8 @@ import { ButtonLink } from "@/components/ui/button";
 import { formatNumber, formatPercent } from "@/lib/utils";
 import { requireUser } from "@/lib/supabase/server";
 
+export const dynamic = "force-dynamic";
+
 export default async function DashboardPage() {
   const { supabase, user } = await requireUser();
   if (!user) redirect("/login");

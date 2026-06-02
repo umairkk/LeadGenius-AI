@@ -4,6 +4,8 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { requireUser } from "@/lib/supabase/server";
 
+export const dynamic = "force-dynamic";
+
 const plans = [
   { name: "Starter", price: "$49", detail: "1,000 leads/mo", features: ["CSV upload", "AI enrichment", "Email drafts"] },
   { name: "Growth", price: "$149", detail: "10,000 leads/mo", features: ["Campaign analytics", "Resend sending", "Reply classification"] },

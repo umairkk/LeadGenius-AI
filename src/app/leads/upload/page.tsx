@@ -4,6 +4,8 @@ import { Card } from "@/components/ui/card";
 import { UploadForm } from "@/components/upload-form";
 import { requireUser } from "@/lib/supabase/server";
 
+export const dynamic = "force-dynamic";
+
 export default async function UploadPage() {
   const { user } = await requireUser();
   if (!user) redirect("/login");

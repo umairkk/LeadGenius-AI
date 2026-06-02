@@ -133,11 +133,13 @@ export async function POST(request: NextRequest, context: RouteContext) {
     .eq("id", lead.id)
     .eq("user_id", user.id);
 
-  await supabase
-    .from("analytics")
-    .update({ emails_generated: emailRows.length })
-    .eq("campaign_id", lead.campaign_id)
-    .eq("user_id", user.id);
+  if (lead.campaign_id) {
+    await supabase
+      .from("analytics")
+      .update({ emails_generated: emailRows.length })
+      .eq("campaign_id", lead.campaign_id)
+      .eq("user_id", user.id);
+  }
 
   return NextResponse.json({ research, emails: emailRows.length });
 }

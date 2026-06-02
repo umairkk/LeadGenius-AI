@@ -5,6 +5,8 @@ import { ResearchButton } from "@/components/research-button";
 import { SendEmailButton } from "@/components/send-email-button";
 import { requireUser } from "@/lib/supabase/server";
 
+export const dynamic = "force-dynamic";
+
 export default async function CampaignsPage() {
   const { supabase, user } = await requireUser();
   if (!user) redirect("/login");
