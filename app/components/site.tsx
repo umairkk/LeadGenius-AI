@@ -778,7 +778,9 @@ export function TestimonialGrid({ compact = false }: { compact?: boolean }) {
               {testimonial.type}
             </span>
           </div>
-          <p className="mt-6 text-lg leading-8 text-slate-700">"{testimonial.quote}"</p>
+          <p className="mt-6 text-lg leading-8 text-slate-700">
+            &quot;{testimonial.quote}&quot;
+          </p>
           <div className="mt-7 flex items-center gap-4">
             <div className="gold-gradient flex h-12 w-12 items-center justify-center rounded-full text-sm font-black text-slate-950">
               {testimonial.name
