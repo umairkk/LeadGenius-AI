@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f9fc;
+  --foreground: #07192f;
+  --navy: #07192f;
+  --navy-2: #0d2a4d;
+  --gold: #d8aa3d;
+  --gold-2: #f1d28a;
+  --muted: #607089;
+  --card: rgba(255, 255, 255, 0.86);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(216, 170, 61, 0.16), transparent 34rem),
+    linear-gradient(180deg, #ffffff 0%, var(--background) 42%, #eef3f9 100%);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(216, 170, 61, 0.35);
+}
+
+.section-padding {
+  padding: 6rem 0;
+}
+
+.container-shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.premium-card {
+  border: 1px solid rgba(7, 25, 47, 0.1);
+  background: var(--card);
+  box-shadow: 0 24px 80px rgba(7, 25, 47, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.dark-card {
+  background:
+    linear-gradient(135deg, rgba(8, 32, 60, 0.96), rgba(6, 18, 36, 0.98)),
+    var(--navy);
+  color: white;
+  box-shadow: 0 28px 90px rgba(7, 25, 47, 0.22);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, var(--gold), var(--gold-2));
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.graph-line {
+  stroke-dasharray: 720;
+  stroke-dashoffset: 720;
+  animation: draw-line 2s ease forwards;
+}
+
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.floating-pulse {
+  animation: pulse-shadow 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-shadow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(216, 170, 61, 0.44);
+  }
+  50% {
+    box-shadow: 0 0 0 16px rgba(216, 170, 61, 0);
+  }
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.calendar-frame {
+  min-height: 680px;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 4rem 0;
+  }
+}
