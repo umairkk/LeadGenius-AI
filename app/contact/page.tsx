@@ -47,11 +47,11 @@ export default function ContactPage() {
       <section className="section-padding bg-white/60">
         <div className="container-shell grid gap-8 lg:grid-cols-2">
           <MapPlaceholder />
-          <div className="premium-card rounded-[2rem] p-8">
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-[#b88a24]">
+          <div className="premium-card rounded-2xl p-8">
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-[#a77b1d]">
               Conversion-focused contact options
             </p>
-            <h2 className="mt-4 text-3xl font-black text-[#07192f]">
+            <h2 className="font-display mt-4 text-3xl font-black tracking-tight text-[#07172b]">
               Multiple ways to convert high-intent visitors into booked consultations.
             </h2>
             <div className="mt-6 grid gap-4 text-slate-600">

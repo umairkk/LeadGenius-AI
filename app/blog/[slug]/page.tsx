@@ -84,22 +84,22 @@ export default async function BlogPostPage({ params }: { params: Params }) {
               <span>-</span>
               <span>{post.category}</span>
             </div>
-            <div className="premium-card rounded-[2rem] p-7 md:p-10">
+            <div className="premium-card rounded-2xl p-7 md:p-10">
               {post.body.map((paragraph) => (
                 <p key={paragraph} className="mb-6 text-lg leading-9 text-slate-700 last:mb-0">
                   {paragraph}
                 </p>
               ))}
             </div>
-            <div className="mt-8 rounded-[2rem] border border-slate-200 bg-white p-6">
-              <h2 className="text-2xl font-black text-[#07192f]">Want a custom growth plan?</h2>
+            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h2 className="font-display text-2xl font-black text-[#07172b]">Want a custom growth plan?</h2>
               <p className="mt-3 leading-7 text-slate-600">
                 Book a free strategy session to review your campaigns, tracking,
                 landing pages, SEO opportunities, and revenue growth levers.
               </p>
               <Link
                 href="/booking"
-                className="gold-gradient mt-5 inline-flex rounded-full px-6 py-3 text-sm font-black text-slate-950"
+                className="gold-gradient mt-5 inline-flex rounded-xl px-6 py-3 text-sm font-black text-slate-950"
               >
                 Book Free Strategy Session
               </Link>

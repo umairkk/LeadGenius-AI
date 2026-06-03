@@ -101,17 +101,17 @@ export function ButtonLink({
 }) {
   const styles = {
     primary:
-      "gold-gradient text-slate-950 shadow-[0_18px_42px_rgba(216,170,61,0.28)] hover:-translate-y-0.5",
+      "gold-gradient text-slate-950 shadow-[0_16px_34px_rgba(199,154,49,0.22)] hover:-translate-y-0.5",
     secondary:
-      "bg-white text-slate-950 border border-white/70 shadow-[0_18px_42px_rgba(7,25,47,0.12)] hover:-translate-y-0.5",
+      "bg-white text-slate-950 border border-white/80 shadow-[0_16px_34px_rgba(7,23,43,0.11)] hover:-translate-y-0.5",
     ghost:
-      "border border-slate-300/80 bg-white/70 text-slate-900 hover:border-[#d8aa3d] hover:text-[#07192f]"
+      "border border-slate-300/80 bg-white/70 text-slate-900 hover:border-[#c79a31] hover:text-[#07172b]"
   };
 
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition ${styles[variant]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-extrabold tracking-tight transition ${styles[variant]} ${className}`}
     >
       {children}
       <ChevronRight className="h-4 w-4" />
@@ -124,17 +124,17 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/86 backdrop-blur-xl">
-      <div className="container-shell flex h-20 items-center justify-between">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/92 shadow-[0_10px_35px_rgba(7,23,43,0.04)] backdrop-blur-xl">
+      <div className="container-shell flex h-[76px] items-center justify-between">
         <Link href="/" className="group flex items-center gap-3">
-          <span className="gold-gradient flex h-11 w-11 items-center justify-center rounded-2xl text-lg font-black text-slate-950 shadow-lg shadow-amber-900/10">
+          <span className="gold-gradient flex h-11 w-11 items-center justify-center rounded-xl text-lg font-black text-slate-950 shadow-lg shadow-amber-900/10 ring-1 ring-black/5">
             UA
           </span>
           <span>
-            <span className="block text-base font-black tracking-tight text-[#07192f]">
+            <span className="font-display block text-base font-black tracking-tight text-[#07172b]">
               Umair Altaf
             </span>
-            <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+            <span className="block text-[0.67rem] font-bold uppercase tracking-[0.2em] text-slate-500">
               Performance Marketing
             </span>
           </span>
@@ -145,10 +145,10 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+              className={`rounded-lg px-3.5 py-2 text-sm font-bold transition ${
                 pathname === link.href
-                  ? "bg-[#07192f] text-white"
-                  : "text-slate-700 hover:bg-slate-100 hover:text-[#07192f]"
+                  ? "bg-[#07172b] text-white shadow-sm"
+                  : "text-slate-700 hover:bg-slate-100 hover:text-[#07172b]"
               }`}
             >
               {link.label}
@@ -165,7 +165,7 @@ export function Header() {
         <button
           type="button"
           aria-label="Open navigation"
-          className="rounded-full border border-slate-200 p-3 lg:hidden"
+          className="rounded-xl border border-slate-200 p-3 lg:hidden"
           onClick={() => setOpen((value) => !value)}
         >
           <Menu className="h-5 w-5" />
@@ -262,14 +262,14 @@ export function FloatingActions() {
     <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3">
       <Link
         href="/booking"
-        className="floating-pulse hidden rounded-full bg-[#07192f] px-5 py-3 text-sm font-black text-white shadow-2xl shadow-slate-950/20 sm:inline-flex"
+        className="floating-pulse hidden rounded-xl bg-[#07172b] px-5 py-3 text-sm font-black text-white shadow-2xl shadow-slate-950/20 sm:inline-flex"
       >
         Book Consultation
       </Link>
       <a
         href={brand.whatsapp}
         aria-label="Chat on WhatsApp"
-        className="gold-gradient flex h-14 w-14 items-center justify-center rounded-full text-slate-950 shadow-2xl shadow-amber-900/20"
+        className="gold-gradient flex h-14 w-14 items-center justify-center rounded-2xl text-slate-950 shadow-2xl shadow-amber-900/20"
       >
         <MessageCircle className="h-6 w-6" />
       </a>
@@ -311,10 +311,10 @@ export function SectionHeader({
 }) {
   return (
     <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      <p className="text-sm font-black uppercase tracking-[0.24em] text-[#b88a24]">
+      <p className="text-xs font-black uppercase tracking-[0.26em] text-[#a77b1d]">
         {eyebrow}
       </p>
-      <h2 className="mt-3 text-balance text-3xl font-black tracking-tight text-[#07192f] md:text-5xl">
+      <h2 className="font-display mt-3 text-balance text-3xl font-black tracking-[-0.035em] text-[#07172b] md:text-5xl">
         {title}
       </h2>
       {description ? (
@@ -328,8 +328,8 @@ function CounterCard({ metric }: { metric: Metric }) {
   const count = useCountUp(metric.value);
 
   return (
-    <div className="premium-card rounded-[2rem] p-6">
-      <p className="text-4xl font-black tracking-tight text-[#07192f] md:text-5xl">
+    <div className="premium-card rounded-2xl p-6">
+      <p className="font-display text-4xl font-black tracking-[-0.04em] text-[#07172b] md:text-5xl">
         {metric.prefix}
         {formatCount(count)}
         {metric.suffix}
@@ -357,19 +357,21 @@ export function MetricsGrid({
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#07192f] text-white">
-      <div className="hero-grid absolute inset-0 opacity-60" />
-      <div className="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-[#d8aa3d]/20 blur-3xl" />
-      <div className="container-shell relative grid min-h-[780px] items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr]">
+    <section className="relative overflow-hidden bg-[#07172b] text-white">
+      <div className="hero-grid absolute inset-0 opacity-55" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#ead08a]/70 to-transparent" />
+      <div className="absolute -left-28 top-16 h-80 w-80 rounded-full bg-[#c79a31]/16 blur-3xl" />
+      <div className="absolute -right-36 bottom-0 h-[28rem] w-[28rem] rounded-full bg-[#173a63]/60 blur-3xl" />
+      <div className="container-shell relative grid min-h-[760px] items-center gap-14 py-20 lg:grid-cols-[1.02fr_0.98fr]">
         <MotionSection>
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm font-bold text-white/82">
+          <div className="inline-flex items-center gap-2 rounded-xl border border-white/14 bg-white/8 px-4 py-2 text-sm font-bold text-white/82 shadow-sm">
             <Trophy className="h-4 w-4 text-[#f1d28a]" />
-            Google Ads, Meta Ads, CRO, Analytics & Revenue Growth
+            Independent consultant for paid media, analytics and growth
           </div>
-          <h1 className="mt-7 text-balance text-5xl font-black tracking-tight md:text-7xl">
+          <h1 className="font-display mt-7 text-balance text-5xl font-black tracking-[-0.04em] md:text-7xl">
             Digital Marketing Expert Driving Revenue, Leads & Business Growth
           </h1>
-          <p className="mt-6 max-w-2xl text-xl leading-9 text-white/72">
+          <p className="mt-6 max-w-2xl text-xl leading-9 text-white/74">
             I help businesses scale through Google Ads, Meta Ads, Analytics,
             Conversion Optimization, and Data-Driven Marketing Strategies.
           </p>
@@ -379,61 +381,118 @@ export function Hero() {
               View Case Studies
             </ButtonLink>
           </div>
-          <div className="mt-10 grid gap-3 sm:grid-cols-3">
-            {["Trusted Strategy", "Clean Tracking", "Revenue Focus"].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-sm font-bold text-white/70">
-                <CheckCircle2 className="h-4 w-4 text-[#f1d28a]" />
-                {item}
+          <div className="mt-11 grid max-w-2xl gap-3 sm:grid-cols-3">
+            {[
+              ["01", "Strategy led by revenue"],
+              ["02", "Tracking you can trust"],
+              ["03", "Campaigns built to scale"]
+            ].map(([number, item]) => (
+              <div key={item} className="border-l border-white/14 pl-4">
+                <p className="text-xs font-black tracking-[0.24em] text-[#ead08a]">
+                  {number}
+                </p>
+                <p className="mt-2 text-sm font-bold leading-6 text-white/72">{item}</p>
               </div>
             ))}
           </div>
         </MotionSection>
 
         <MotionSection className="relative">
-          <div className="dark-card rounded-[2.5rem] border border-white/12 p-6">
-            <div className="rounded-[2rem] bg-white p-5 text-[#07192f]">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-sm font-black uppercase tracking-[0.2em] text-slate-500">
-                    Growth Dashboard
-                  </p>
-                  <h2 className="mt-2 text-2xl font-black">Revenue & Lead Engine</h2>
-                </div>
-                <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700">
-                  Live-ready
-                </span>
-              </div>
-              <svg viewBox="0 0 520 240" className="mt-8 h-56 w-full">
-                <defs>
-                  <linearGradient id="heroArea" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stopColor="#d8aa3d" stopOpacity="0.35" />
-                    <stop offset="100%" stopColor="#d8aa3d" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M20 198 C82 182 90 122 154 132 C213 141 210 72 274 84 C333 96 347 44 405 50 C455 55 472 28 500 24 L500 220 L20 220 Z"
-                  fill="url(#heroArea)"
-                />
-                <path
-                  className="graph-line"
-                  d="M20 198 C82 182 90 122 154 132 C213 141 210 72 274 84 C333 96 347 44 405 50 C455 55 472 28 500 24"
-                  fill="none"
-                  stroke="#d8aa3d"
-                  strokeLinecap="round"
-                  strokeWidth="8"
-                />
-              </svg>
-              <div className="grid gap-3 sm:grid-cols-3">
-                {[
-                  ["ROAS Lift", "+218%"],
-                  ["CPL Change", "-44%"],
-                  ["CVR Lift", "+72%"]
-                ].map(([label, value]) => (
-                  <div key={label} className="rounded-2xl bg-slate-50 p-4">
-                    <p className="text-2xl font-black text-[#07192f]">{value}</p>
-                    <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                      {label}
+          <div className="executive-surface rounded-[1.75rem] p-5 text-[#07172b]">
+            <div className="grid gap-4">
+              <div className="rounded-[1.25rem] border border-slate-200 bg-white p-5">
+                <div className="flex items-start justify-between gap-5">
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-500">
+                      Consultant Snapshot
                     </p>
+                    <h2 className="font-display mt-3 text-3xl font-black tracking-tight">
+                      Umair Altaf
+                    </h2>
+                    <p className="mt-2 text-sm font-bold text-slate-500">
+                      Performance Marketing Consultant
+                    </p>
+                  </div>
+                  <div className="gold-gradient flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-xl font-black text-slate-950 ring-1 ring-black/5">
+                    UA
+                  </div>
+                </div>
+                <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                  {[
+                    ["$42M+", "Revenue"],
+                    ["318K+", "Leads"],
+                    ["740+", "Campaigns"]
+                  ].map(([value, label]) => (
+                    <div key={label} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                      <p className="font-display text-2xl font-black text-[#07172b]">
+                        {value}
+                      </p>
+                      <p className="mt-1 text-xs font-black uppercase tracking-wider text-slate-500">
+                        {label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-[1.25rem] bg-[#07172b] p-5 text-white">
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.22em] text-[#ead08a]">
+                      Growth Dashboard
+                    </p>
+                    <h3 className="mt-2 text-xl font-black">Revenue & Lead Engine</h3>
+                  </div>
+                  <span className="rounded-lg border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-black text-emerald-200">
+                    Live-ready
+                  </span>
+                </div>
+                <svg viewBox="0 0 520 220" className="mt-7 h-48 w-full">
+                  <defs>
+                    <linearGradient id="heroArea" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stopColor="#ead08a" stopOpacity="0.32" />
+                      <stop offset="100%" stopColor="#ead08a" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M20 188 C82 172 90 116 154 126 C213 135 210 72 274 80 C333 90 347 44 405 48 C455 52 472 28 500 22 L500 210 L20 210 Z"
+                    fill="url(#heroArea)"
+                  />
+                  <path
+                    className="graph-line"
+                    d="M20 188 C82 172 90 116 154 126 C213 135 210 72 274 80 C333 90 347 44 405 48 C455 52 472 28 500 22"
+                    fill="none"
+                    stroke="#ead08a"
+                    strokeLinecap="round"
+                    strokeWidth="6"
+                  />
+                </svg>
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {[
+                    ["ROAS Lift", "+218%"],
+                    ["CPL Change", "-44%"],
+                    ["CVR Lift", "+72%"]
+                  ].map(([label, value]) => (
+                    <div key={label} className="rounded-xl border border-white/10 bg-white/7 p-4">
+                      <p className="font-display text-2xl font-black text-white">{value}</p>
+                      <p className="mt-1 text-xs font-bold uppercase tracking-wider text-white/48">
+                        {label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-2">
+                {[
+                  "Google Ads and Performance Max",
+                  "Meta Ads and remarketing",
+                  "GA4, GTM and attribution",
+                  "CRO, SEO and growth strategy"
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-700">
+                    <CheckCircle2 className="h-4 w-4 text-[#c79a31]" />
+                    {item}
                   </div>
                 ))}
               </div>
@@ -447,7 +506,7 @@ export function Hero() {
 
 export function TrustBar() {
   return (
-    <section className="border-y border-slate-200/80 bg-white/80 py-6">
+    <section className="border-y border-slate-200/90 bg-white/88 py-7">
       <div className="container-shell">
         <p className="mb-4 text-center text-xs font-black uppercase tracking-[0.24em] text-slate-500">
           Trusted platform expertise and certification ecosystem
@@ -456,7 +515,7 @@ export function TrustBar() {
           {trustLogos.map((logo) => (
             <div
               key={logo}
-              className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-black text-slate-700 shadow-sm"
+              className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-black text-slate-700 shadow-sm"
             >
               {logo}
             </div>
@@ -476,16 +535,16 @@ export function ServicesGrid({ compact = false }: { compact?: boolean }) {
           <article
             key={service.slug}
             id={service.slug}
-            className="premium-card rounded-[2rem] p-7 transition hover:-translate-y-1 hover:shadow-[0_30px_90px_rgba(7,25,47,0.14)]"
+            className="premium-card rounded-2xl p-7 transition hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(7,23,43,0.12)]"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-sm font-black uppercase tracking-[0.18em] text-[#b88a24]">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#a77b1d]">
                   {service.eyebrow}
                 </p>
-                <h3 className="mt-2 text-2xl font-black text-[#07192f]">{service.title}</h3>
+                <h3 className="font-display mt-2 text-2xl font-black tracking-tight text-[#07172b]">{service.title}</h3>
               </div>
-              <span className="gold-gradient flex h-13 w-13 items-center justify-center rounded-2xl text-slate-950">
+              <span className="gold-gradient flex h-13 w-13 items-center justify-center rounded-xl text-slate-950 ring-1 ring-black/5">
                 <Icon className="h-6 w-6" />
               </span>
             </div>
@@ -493,7 +552,7 @@ export function ServicesGrid({ compact = false }: { compact?: boolean }) {
             <div className="mt-6 grid gap-2 sm:grid-cols-2">
               {service.services.slice(0, compact ? 4 : service.services.length).map((item) => (
                 <div key={item} className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-                  <CheckCircle2 className="h-4 w-4 text-[#d8aa3d]" />
+                  <CheckCircle2 className="h-4 w-4 text-[#c79a31]" />
                   {item}
                 </div>
               ))}
@@ -503,7 +562,7 @@ export function ServicesGrid({ compact = false }: { compact?: boolean }) {
                 {service.industries.map((industry) => (
                   <span
                     key={industry}
-                    className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600"
+                    className="rounded-lg bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600"
                   >
                     {industry}
                   </span>
@@ -513,6 +572,67 @@ export function ServicesGrid({ compact = false }: { compact?: boolean }) {
           </article>
         );
       })}
+    </div>
+  );
+}
+
+export function StrategyFramework() {
+  const pillars = [
+    {
+      label: "Audit",
+      title: "Find the revenue leaks",
+      detail:
+        "Campaign structure, tracking quality, landing pages, offer positioning, and funnel data are reviewed before scaling spend."
+    },
+    {
+      label: "Build",
+      title: "Create the growth system",
+      detail:
+        "Paid media, analytics, conversion tracking, reporting, and CRO priorities are aligned around qualified leads and revenue."
+    },
+    {
+      label: "Scale",
+      title: "Optimize with confidence",
+      detail:
+        "Budget shifts, creative testing, search intent, product feeds, and landing page experiments are guided by clean performance data."
+    }
+  ];
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="dark-card rounded-2xl p-8 md:p-10">
+        <p className="text-xs font-black uppercase tracking-[0.24em] text-[#ead08a]">
+          Growth Operating System
+        </p>
+        <h2 className="font-display mt-4 text-3xl font-black tracking-[-0.035em] md:text-5xl">
+          A professional process for turning marketing spend into measurable growth.
+        </h2>
+        <p className="mt-6 leading-8 text-white/68">
+          The work starts with measurement and business economics, then moves
+          into channel execution. That keeps the strategy focused on profit,
+          quality, and scale instead of surface-level traffic metrics.
+        </p>
+      </div>
+      <div className="grid gap-4">
+        {pillars.map((pillar, index) => (
+          <div key={pillar.label} className="premium-card rounded-2xl p-6">
+            <div className="flex gap-5">
+              <span className="gold-gradient flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-sm font-black text-slate-950">
+                0{index + 1}
+              </span>
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#a77b1d]">
+                  {pillar.label}
+                </p>
+                <h3 className="font-display mt-2 text-2xl font-black tracking-tight text-[#07172b]">
+                  {pillar.title}
+                </h3>
+                <p className="mt-3 leading-7 text-slate-600">{pillar.detail}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -566,7 +686,7 @@ export function CaseStudyExplorer({ limit }: { limit?: number }) {
   return (
     <div>
       {!limit ? (
-        <div className="mb-8 grid gap-4 rounded-[2rem] border border-slate-200 bg-white p-4 lg:grid-cols-2">
+        <div className="mb-8 grid gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm lg:grid-cols-2">
           <FilterPills label="Category" values={categories} active={category} onChange={setCategory} />
           <FilterPills label="Industry" values={industries} active={industry} onChange={setIndustry} />
         </div>
@@ -574,41 +694,41 @@ export function CaseStudyExplorer({ limit }: { limit?: number }) {
 
       <div className="grid gap-6 lg:grid-cols-2">
         {filtered.map((study) => (
-          <article key={study.id} className="premium-card rounded-[2rem] p-7">
+          <article key={study.id} className="premium-card rounded-2xl p-7">
             <div className="flex flex-wrap gap-2">
-              <span className="rounded-full bg-[#07192f] px-3 py-1 text-xs font-black text-white">
+              <span className="rounded-lg bg-[#07172b] px-3 py-1 text-xs font-black text-white">
                 {study.category}
               </span>
-              <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-black text-amber-900">
+              <span className="rounded-lg bg-amber-100 px-3 py-1 text-xs font-black text-amber-900">
                 {study.industry}
               </span>
             </div>
-            <h3 className="mt-5 text-2xl font-black text-[#07192f]">{study.title}</h3>
+            <h3 className="font-display mt-5 text-2xl font-black tracking-tight text-[#07172b]">{study.title}</h3>
             <div className="mt-6 grid gap-4 text-sm leading-7 text-slate-600">
               <p>
-                <strong className="text-[#07192f]">Challenge:</strong> {study.challenge}
+                <strong className="text-[#07172b]">Challenge:</strong> {study.challenge}
               </p>
               <p>
-                <strong className="text-[#07192f]">Strategy:</strong> {study.strategy}
+                <strong className="text-[#07172b]">Strategy:</strong> {study.strategy}
               </p>
               <p>
-                <strong className="text-[#07192f]">Implementation:</strong> {study.implementation}
+                <strong className="text-[#07172b]">Implementation:</strong> {study.implementation}
               </p>
               <p>
-                <strong className="text-[#07192f]">Results:</strong> {study.results}
+                <strong className="text-[#07172b]">Results:</strong> {study.results}
               </p>
             </div>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {study.metrics.map((metric) => (
-                <div key={metric.label} className="rounded-2xl bg-slate-50 p-4">
-                  <p className="text-2xl font-black text-[#07192f]">{metric.value}</p>
+                <div key={metric.label} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                  <p className="font-display text-2xl font-black text-[#07172b]">{metric.value}</p>
                   <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
                     {metric.label}
                   </p>
                 </div>
               ))}
             </div>
-            <div className="mt-7 rounded-3xl border border-slate-100 bg-white p-5">
+            <div className="mt-7 rounded-2xl border border-slate-100 bg-white p-5">
               <ComparisonBars items={study.beforeAfter} />
             </div>
           </article>
@@ -638,9 +758,9 @@ function FilterPills({
             key={value}
             type="button"
             onClick={() => onChange(value)}
-            className={`rounded-full px-4 py-2 text-sm font-bold transition ${
+            className={`rounded-lg px-4 py-2 text-sm font-bold transition ${
               active === value
-                ? "bg-[#07192f] text-white"
+                ? "bg-[#07172b] text-white"
                 : "bg-slate-100 text-slate-700 hover:bg-slate-200"
             }`}
           >
@@ -656,26 +776,26 @@ export function PortfolioGrid() {
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {portfolioProjects.map((project) => (
-        <article key={project.title} className="premium-card flex flex-col rounded-[2rem] p-7">
-          <span className="w-fit rounded-full bg-amber-100 px-3 py-1 text-xs font-black text-amber-900">
+        <article key={project.title} className="premium-card flex flex-col rounded-2xl p-7">
+          <span className="w-fit rounded-lg bg-amber-100 px-3 py-1 text-xs font-black text-amber-900">
             {project.category}
           </span>
-          <h3 className="mt-5 text-2xl font-black text-[#07192f]">{project.title}</h3>
+          <h3 className="font-display mt-5 text-2xl font-black tracking-tight text-[#07172b]">{project.title}</h3>
           <p className="mt-1 text-sm font-bold text-slate-500">{project.industry}</p>
           <div className="mt-5 grid gap-4 text-sm leading-7 text-slate-600">
             <p>
-              <strong className="text-[#07192f]">Objective:</strong> {project.objective}
+              <strong className="text-[#07172b]">Objective:</strong> {project.objective}
             </p>
             <p>
-              <strong className="text-[#07192f]">Strategy:</strong> {project.strategy}
+              <strong className="text-[#07172b]">Strategy:</strong> {project.strategy}
             </p>
             <p>
-              <strong className="text-[#07192f]">Results:</strong> {project.results}
+              <strong className="text-[#07172b]">Results:</strong> {project.results}
             </p>
           </div>
           <div className="mt-6 flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
-              <span key={tech} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600">
+              <span key={tech} className="rounded-lg bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600">
                 {tech}
               </span>
             ))}
@@ -697,17 +817,17 @@ export function CertificateGallery() {
             key={certificate}
             type="button"
             onClick={() => setSelected(certificate)}
-            className="premium-card group rounded-[2rem] p-7 text-left transition hover:-translate-y-1"
+            className="premium-card group rounded-2xl p-7 text-left transition hover:-translate-y-1"
           >
-            <span className="gold-gradient flex h-14 w-14 items-center justify-center rounded-2xl text-slate-950">
+            <span className="gold-gradient flex h-14 w-14 items-center justify-center rounded-xl text-slate-950 ring-1 ring-black/5">
               <Award className="h-7 w-7" />
             </span>
-            <h3 className="mt-6 text-xl font-black text-[#07192f]">{certificate}</h3>
+            <h3 className="font-display mt-6 text-xl font-black tracking-tight text-[#07172b]">{certificate}</h3>
             <p className="mt-3 text-sm leading-6 text-slate-600">
               Verification-ready certification badge for paid media, analytics,
               automation, or search visibility expertise.
             </p>
-            <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-[#b88a24]">
+            <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-[#a77b1d]">
               View certificate <ChevronRight className="h-4 w-4" />
             </span>
           </button>
@@ -720,13 +840,13 @@ export function CertificateGallery() {
           onClick={() => setSelected(null)}
         >
           <div
-            className="max-w-xl rounded-[2rem] bg-white p-8 shadow-2xl"
+            className="max-w-xl rounded-2xl bg-white p-8 shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="gold-gradient flex h-20 w-20 items-center justify-center rounded-3xl text-slate-950">
+            <div className="gold-gradient flex h-20 w-20 items-center justify-center rounded-2xl text-slate-950">
               <Award className="h-10 w-10" />
             </div>
-            <h3 className="mt-6 text-3xl font-black text-[#07192f]">{selected}</h3>
+            <h3 className="font-display mt-6 text-3xl font-black text-[#07172b]">{selected}</h3>
             <p className="mt-4 leading-7 text-slate-600">
               This modal is prepared for the live certificate image or PDF. Add
               the certificate asset to connect the gallery to verified proof.
@@ -734,7 +854,7 @@ export function CertificateGallery() {
             <button
               type="button"
               onClick={() => setSelected(null)}
-              className="mt-7 rounded-full bg-[#07192f] px-6 py-3 text-sm font-black text-white"
+              className="mt-7 rounded-xl bg-[#07172b] px-6 py-3 text-sm font-black text-white"
             >
               Close
             </button>
@@ -749,8 +869,8 @@ export function AwardsGrid() {
   return (
     <div className="grid gap-4 md:grid-cols-2">
       {awards.map((award) => (
-        <div key={award} className="flex items-center gap-4 rounded-3xl border border-slate-200 bg-white p-5">
-          <span className="gold-gradient flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-slate-950">
+        <div key={award} className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <span className="gold-gradient flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-slate-950">
             <Trophy className="h-6 w-6" />
           </span>
           <p className="font-bold text-slate-700">{award}</p>
@@ -766,14 +886,14 @@ export function TestimonialGrid({ compact = false }: { compact?: boolean }) {
   return (
     <div className="grid gap-6 md:grid-cols-2">
       {items.map((testimonial) => (
-        <article key={testimonial.name} className="premium-card rounded-[2rem] p-7">
+        <article key={testimonial.name} className="premium-card rounded-2xl p-7">
           <div className="flex items-center justify-between gap-4">
-            <div className="flex gap-1 text-[#d8aa3d]">
+            <div className="flex gap-1 text-[#c79a31]">
               {Array.from({ length: testimonial.rating }).map((_, index) => (
                 <Star key={index} className="h-5 w-5 fill-current" />
               ))}
             </div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-600">
+            <span className="inline-flex items-center gap-2 rounded-lg bg-slate-100 px-3 py-1 text-xs font-black text-slate-600">
               {testimonial.type === "Video Testimonial" ? <PlayCircle className="h-4 w-4" /> : null}
               {testimonial.type}
             </span>
@@ -782,14 +902,14 @@ export function TestimonialGrid({ compact = false }: { compact?: boolean }) {
             &quot;{testimonial.quote}&quot;
           </p>
           <div className="mt-7 flex items-center gap-4">
-            <div className="gold-gradient flex h-12 w-12 items-center justify-center rounded-full text-sm font-black text-slate-950">
+            <div className="gold-gradient flex h-12 w-12 items-center justify-center rounded-xl text-sm font-black text-slate-950">
               {testimonial.name
                 .split(" ")
                 .map((part) => part[0])
                 .join("")}
             </div>
             <div>
-              <p className="font-black text-[#07192f]">{testimonial.name}</p>
+              <p className="font-black text-[#07172b]">{testimonial.name}</p>
               <p className="text-sm text-slate-500">{testimonial.role}</p>
             </div>
           </div>
@@ -808,7 +928,7 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="premium-card rounded-[2rem] p-6 md:p-8">
+    <form onSubmit={handleSubmit} className="premium-card rounded-2xl p-6 md:p-8">
       <div className="grid gap-4 md:grid-cols-2">
         <Field label="Name" name="name" placeholder="Your name" required />
         <Field label="Email" name="email" type="email" placeholder="you@company.com" required />
@@ -818,7 +938,7 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
           <span className="text-sm font-black text-slate-700">Monthly Marketing Budget</span>
           <select
             name="budget"
-            className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none transition focus:border-[#d8aa3d] focus:ring-4 focus:ring-amber-100"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none transition focus:border-[#c79a31] focus:ring-4 focus:ring-amber-100"
           >
             <option>$2,500 - $5,000</option>
             <option>$5,000 - $15,000</option>
@@ -830,7 +950,7 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
           <span className="text-sm font-black text-slate-700">Services Interested In</span>
           <select
             name="services"
-            className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none transition focus:border-[#d8aa3d] focus:ring-4 focus:ring-amber-100"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none transition focus:border-[#c79a31] focus:ring-4 focus:ring-amber-100"
           >
             <option>Google Ads</option>
             <option>Meta Ads</option>
@@ -848,19 +968,19 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
               name="message"
               rows={5}
               placeholder="Tell me what you want to improve..."
-              className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none transition focus:border-[#d8aa3d] focus:ring-4 focus:ring-amber-100"
+              className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none transition focus:border-[#c79a31] focus:ring-4 focus:ring-amber-100"
             />
           </label>
         ) : null}
       </div>
       <button
         type="submit"
-        className="gold-gradient mt-6 w-full rounded-full px-6 py-4 text-sm font-black text-slate-950 shadow-xl shadow-amber-900/10"
+        className="gold-gradient mt-6 w-full rounded-xl px-6 py-4 text-sm font-black text-slate-950 shadow-xl shadow-amber-900/10"
       >
         Book Your Free Strategy Session
       </button>
       {submitted ? (
-        <p className="mt-4 rounded-2xl bg-emerald-50 p-4 text-sm font-bold text-emerald-800">
+        <p className="mt-4 rounded-xl bg-emerald-50 p-4 text-sm font-bold text-emerald-800">
           Thanks. The form is ready for CRM or email integration. For now,
           please also book a slot on the calendar to confirm availability.
         </p>
@@ -890,7 +1010,7 @@ function Field({
         type={type}
         placeholder={placeholder}
         required={required}
-        className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none transition focus:border-[#d8aa3d] focus:ring-4 focus:ring-amber-100"
+        className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 outline-none transition focus:border-[#c79a31] focus:ring-4 focus:ring-amber-100"
       />
     </label>
   );
@@ -900,8 +1020,8 @@ export function FAQSection() {
   return (
     <div className="mx-auto max-w-4xl space-y-4">
       {faqs.map((faq) => (
-        <details key={faq.question} className="premium-card group rounded-3xl p-6">
-          <summary className="cursor-pointer list-none text-lg font-black text-[#07192f]">
+        <details key={faq.question} className="premium-card group rounded-2xl p-6">
+          <summary className="cursor-pointer list-none text-lg font-black text-[#07172b]">
             {faq.question}
           </summary>
           <p className="mt-4 leading-7 text-slate-600">{faq.answer}</p>
@@ -915,11 +1035,11 @@ export function BlogGrid() {
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
       {blogPosts.map((post) => (
-        <article key={post.slug} className="premium-card flex flex-col rounded-[2rem] p-6">
-          <span className="w-fit rounded-full bg-amber-100 px-3 py-1 text-xs font-black text-amber-900">
+        <article key={post.slug} className="premium-card flex flex-col rounded-2xl p-6">
+          <span className="w-fit rounded-lg bg-amber-100 px-3 py-1 text-xs font-black text-amber-900">
             {post.category}
           </span>
-          <h3 className="mt-5 text-xl font-black leading-tight text-[#07192f]">
+          <h3 className="font-display mt-5 text-xl font-black leading-tight tracking-tight text-[#07172b]">
             {post.title}
           </h3>
           <p className="mt-4 flex-1 text-sm leading-7 text-slate-600">{post.excerpt}</p>
@@ -929,7 +1049,7 @@ export function BlogGrid() {
           </div>
           <Link
             href={`/blog/${post.slug}`}
-            className="mt-5 inline-flex items-center gap-2 text-sm font-black text-[#b88a24]"
+            className="mt-5 inline-flex items-center gap-2 text-sm font-black text-[#a77b1d]"
           >
             Read article <ChevronRight className="h-4 w-4" />
           </Link>
@@ -948,13 +1068,13 @@ export function DashboardCharts() {
   ];
 
   return (
-    <div className="dark-card rounded-[2.5rem] p-7 md:p-10">
+    <div className="dark-card rounded-2xl p-7 md:p-10">
       <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <p className="text-sm font-black uppercase tracking-[0.22em] text-[#f1d28a]">
             Revenue & Lead Generation Dashboard
           </p>
-          <h2 className="mt-4 text-3xl font-black tracking-tight md:text-5xl">
+          <h2 className="font-display mt-4 text-3xl font-black tracking-[-0.035em] md:text-5xl">
             Built around the numbers leadership actually needs.
           </h2>
           <p className="mt-5 leading-8 text-white/68">
@@ -965,7 +1085,7 @@ export function DashboardCharts() {
         </div>
         <div className="grid gap-4">
           {charts.map((chart) => (
-            <div key={chart.label} className="rounded-3xl bg-white/8 p-5">
+            <div key={chart.label} className="rounded-2xl bg-white/8 p-5">
               <div className="mb-3 flex items-center justify-between">
                 <span className="font-bold text-white/76">{chart.label}</span>
                 <span className="text-2xl font-black text-[#f1d28a]">{chart.value}</span>
@@ -1004,7 +1124,7 @@ export function PageHero({
           <p className="text-sm font-black uppercase tracking-[0.24em] text-[#f1d28a]">
             {eyebrow}
           </p>
-          <h1 className="mt-5 text-balance text-4xl font-black tracking-tight md:text-6xl">
+          <h1 className="font-display mt-5 text-balance text-4xl font-black tracking-[-0.04em] md:text-6xl">
             {title}
           </h1>
           <p className="mt-6 max-w-3xl text-xl leading-9 text-white/72">{description}</p>
@@ -1024,11 +1144,11 @@ export function FinalCTA() {
   return (
     <section className="section-padding">
       <div className="container-shell">
-        <div className="dark-card rounded-[2.5rem] p-8 text-center md:p-14">
+        <div className="dark-card rounded-2xl p-8 text-center md:p-14">
           <p className="text-sm font-black uppercase tracking-[0.24em] text-[#f1d28a]">
             Ready to grow with cleaner data?
           </p>
-          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-black tracking-tight md:text-5xl">
+          <h2 className="font-display mx-auto mt-4 max-w-3xl text-3xl font-black tracking-[-0.035em] md:text-5xl">
             Turn campaigns, tracking, landing pages, and strategy into a revenue system.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl leading-8 text-white/68">
@@ -1057,14 +1177,14 @@ export function AboutStory() {
 
   return (
     <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-      <div className="premium-card rounded-[2rem] p-7">
-        <div className="aspect-[4/5] rounded-[1.6rem] bg-[radial-gradient(circle_at_30%_20%,rgba(216,170,61,0.38),transparent_28%),linear-gradient(135deg,#07192f,#12345f)] p-6 text-white">
-          <div className="flex h-full flex-col justify-between rounded-[1.2rem] border border-white/16 p-6">
+      <div className="premium-card rounded-2xl p-7">
+        <div className="aspect-[4/5] rounded-xl bg-[radial-gradient(circle_at_30%_20%,rgba(199,154,49,0.32),transparent_28%),linear-gradient(135deg,#07172b,#173a63)] p-6 text-white">
+          <div className="flex h-full flex-col justify-between rounded-xl border border-white/16 p-6">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.24em] text-[#f1d28a]">
                 Professional Photo
               </p>
-              <h3 className="mt-4 text-4xl font-black">Umair Altaf</h3>
+              <h3 className="font-display mt-4 text-4xl font-black">Umair Altaf</h3>
             </div>
             <p className="leading-7 text-white/72">
               Performance marketing consultant focused on revenue, analytics,
@@ -1082,11 +1202,11 @@ export function AboutStory() {
         />
         <div className="mt-8 grid gap-4">
           {timeline.map((item, index) => (
-            <div key={item} className="flex gap-4 rounded-3xl border border-slate-200 bg-white p-5">
-              <span className="gold-gradient flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-black text-slate-950">
+            <div key={item} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <span className="gold-gradient flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-black text-slate-950">
                 {index + 1}
               </span>
-              <p className="leading-7 text-slate-650">{item}</p>
+              <p className="leading-7 text-slate-600">{item}</p>
             </div>
           ))}
         </div>
@@ -1106,10 +1226,10 @@ export function ContactCards() {
   return (
     <div className="grid gap-4 md:grid-cols-2">
       {contacts.map(({ label, value, href, Icon }) => (
-        <a key={label} href={href} className="premium-card rounded-3xl p-6 transition hover:-translate-y-1">
-          <Icon className="h-7 w-7 text-[#b88a24]" />
+        <a key={label} href={href} className="premium-card rounded-2xl p-6 transition hover:-translate-y-1">
+          <Icon className="h-7 w-7 text-[#a77b1d]" />
           <p className="mt-4 text-sm font-black uppercase tracking-[0.18em] text-slate-500">{label}</p>
-          <p className="mt-2 text-lg font-black text-[#07192f]">{value}</p>
+          <p className="mt-2 text-lg font-black text-[#07172b]">{value}</p>
         </a>
       ))}
     </div>
@@ -1118,10 +1238,10 @@ export function ContactCards() {
 
 export function MapPlaceholder() {
   return (
-    <div className="premium-card flex min-h-[360px] items-center justify-center rounded-[2rem] p-8 text-center">
+    <div className="premium-card flex min-h-[360px] items-center justify-center rounded-2xl p-8 text-center">
       <div>
-        <MapPin className="mx-auto h-12 w-12 text-[#d8aa3d]" />
-        <h3 className="mt-4 text-2xl font-black text-[#07192f]">Remote Consulting Worldwide</h3>
+        <MapPin className="mx-auto h-12 w-12 text-[#c79a31]" />
+        <h3 className="font-display mt-4 text-2xl font-black text-[#07172b]">Remote Consulting Worldwide</h3>
         <p className="mx-auto mt-3 max-w-md leading-7 text-slate-600">
           Google Map-ready section for office, service area, or local business
           profile embedding. Available for clients across multiple countries.
@@ -1141,9 +1261,9 @@ export function AchievementOverview() {
           ["Marketing Philosophy", "Connect every campaign to commercial outcomes, lead quality, conversion rate, and revenue."],
           ["Mission", "Help growth-minded teams scale with better data, sharper strategy, and accountable execution."]
         ].map(([title, description]) => (
-          <div key={title} className="rounded-[2rem] border border-slate-200 bg-white p-6">
-            <TrendingUp className="h-7 w-7 text-[#b88a24]" />
-            <h3 className="mt-4 text-xl font-black text-[#07192f]">{title}</h3>
+          <div key={title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <TrendingUp className="h-7 w-7 text-[#a77b1d]" />
+            <h3 className="font-display mt-4 text-xl font-black text-[#07172b]">{title}</h3>
             <p className="mt-3 leading-7 text-slate-600">{description}</p>
           </div>
         ))}

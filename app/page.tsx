@@ -11,6 +11,7 @@ import {
   MotionSection,
   SectionHeader,
   ServicesGrid,
+  StrategyFramework,
   TestimonialGrid,
   TrustBar
 } from "./components/site";
@@ -53,6 +54,14 @@ export default function Home() {
         <div className="container-shell">
           <MotionSection>
             <MetricsGrid />
+          </MotionSection>
+        </div>
+      </section>
+
+      <section className="section-padding subtle-grid bg-white/70">
+        <div className="container-shell">
+          <MotionSection>
+            <StrategyFramework />
           </MotionSection>
         </div>
       </section>

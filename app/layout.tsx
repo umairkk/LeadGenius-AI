@@ -1,10 +1,23 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Manrope } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { FloatingActions, Footer, Header } from "./components/site";
 
 const siteUrl = "https://umairaltaf.com";
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap"
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap"
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -52,7 +65,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#07192f"
+  themeColor: "#07172b"
 };
 
 export default function RootLayout({
@@ -61,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
       <body>
         {gtmId ? (
           <>

@@ -34,7 +34,7 @@ export default function BookingPage() {
               title="Tell Umair what you want to improve."
               description="This form is ready for CRM, email, or automation integration. It captures name, email, phone, website, monthly marketing budget, and services of interest."
             />
-            <div className="mt-8 rounded-[2rem] border border-slate-200 bg-white p-6">
+            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
               <p className="text-sm font-black uppercase tracking-[0.2em] text-slate-500">
                 Calendar Integration
               </p>
@@ -55,7 +55,7 @@ export default function BookingPage() {
             eyebrow="Calendly"
             title="Choose an available time for your free strategy session."
           />
-          <div className="mt-12 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-2xl shadow-slate-950/8">
+          <div className="mt-12 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-950/8">
             <iframe
               src={brand.calendly}
               title="Calendly booking calendar"
